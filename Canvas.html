@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2804b3c4f0.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 6.5rem;
+    background-color: rgba(8, 6, 6, 0.918);
+    box-shadow: 0 0 10px #000;
+    border: 1px solid #000000;
+    z-index: 100000;
+}
+
+.navbar h2 {
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.item li{
+    list-style: none;
+    padding-right: 50px;
+}
+.item li a{
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+.item li a:hover{
+    color: #ff5733;
+    cursor: pointer;
+}
+.icon i{
+    color: #fff;
+    padding-right: 30px;
+    font-weight: bolder;
+}
+.icon i:hover{
+    color: #ff5733;
+    cursor: pointer;
+}
+
+.back {
+    background-image: url(./Images/pexels-david-geib-3220846.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    z-index: -1;
+}
+.back .overlay{
+    background: #101316;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+.mid{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.mid h2{
+    color: rgb(255, 251, 247);
+    font-size: 3rem;
+    margin-bottom: 1.4rem;
+}
+.mid p{
+    color: rgba(255, 251, 247, 0.596);
+    font-size: 1.3rem;
+}
+.mid .btn{
+    margin-top: 2rem;
+}
+.mid .btn a{
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.mid .btn a.simple{
+    color: #fff;
+    font-weight: 500;
+    padding: 0.9rem 1.6rem;
+}
+.mid .btn a.simple:hover{
+    color: #ff5733;
+}
+.mid .btn a.border{
+    color: #ff5733;
+    border: 1px solid #ff5733;
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 0.9rem 1.6rem;
+}
+.mid .btn a.border:hover{
+    background: #fff;
+    border: 1px solid #fff;
+}
+.details{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rem 15rem;
+    background: #171819;
+}
+.details h3,h5,h6{
+    color: #fff;
+}
+.details .one{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.details .one h3{
+    font-size: 2.5rem;
+    padding-bottom: 1.1rem;
+}
+.details .one h6{
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-bottom: 1.2rem;
+}
+.details .one p{
+    color: #666262;
+    font-size: 1.2rem;
+    padding-bottom: 3rem;
+}
+.details .one a{
+    color: #fff;
+    background: #f13a11;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: inset 0 0 0 0 #171819;
+    transition: ease-out 0.5s;
+}
+.details .one a:hover{
+    box-shadow: inset 500px 0 0 0 #171819;
+}
+.details .two{
+    width: 45%;
+    border-left: 1px solid #666262;
+    padding-left: 4rem;
+}
+.details .two h3{
+    font-size: 2.5rem;
+    padding-bottom: 1.1rem;
+}
+.details .two h5{
+    font-size: 1.1rem;
+}
+.details .two p{
+    font-size: 1.1rem;
+    color: #666262;
+    margin-bottom: 0.8rem;
+}
+.agency{
+    background: #f9f9f9;
+    padding: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.agency .about{
+    width: 39%;
+}
+.agency .about h2{
+    color: #212529;
+    font-size: 2.1rem;
+    padding-bottom: 1.8rem;
+}
+.agency .about p{
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+.agency .partner{
+    width: 57%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.agency .partner .team1{
+    width: 45%;
+    height: auto;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow:
+  -3.9px -3.9px 5.1px rgba(0, 0, 0, 0.082),
+  -10.2px -10.2px 16.5px rgba(0, 0, 0, 0.116),
+  17.7px 17.7px 39px rgba(0, 0, 0, 0.147),
+  100px 100px 80px rgba(0, 0, 0, 0.18)
+
+}
+.agency .partner .team1 .image1 img{
+    width: 100%;
+    object-fit: cover;
+}
+.agency .partner .team1 .name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 12px 0 15px;
+}
+.agency .partner .team1 .teamDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.agency .partner .team1 .name h4{
+    color: #212529;
+    font-size: 1.5rem;
+}
+.agency .partner .team1 .name i, .agency .partner .team1 .pro i{
+    font-size: 1.3rem;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #212529;
+}
+.agency .partner .team1 .pro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px 5px 20px;
+}
+.agency .partner .team1 .pro p{
+    color: #212529;
+}
+.class1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem 8rem;
+}
+.class1 .head-1{
+    font-size: 2.2rem;
+    color: #222;
+    font-weight: 700;
+    padding-bottom: 6px;
+    text-align: center;
+}
+.class1 .paragraph-1{
+    font-size: 1.2rem;
+    color: #95a5a6;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.class1 .menu-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.class1 .menu-card .team1{
+    width: 32%;
+    height: auto;
+    box-sizing: border-box;
+    background: #fff;
+    box-shadow:
+  -3.9px -3.9px 5.1px rgba(0, 0, 0, 0.082),
+  -10.2px -10.2px 16.5px rgba(0, 0, 0, 0.116),
+  17.7px 17.7px 39px rgba(0, 0, 0, 0.147),
+  100px 100px 80px rgba(0, 0, 0, 0.18)
+
+}
+.class1 .menu-card .team1 .image1 img{
+    width: 100%;
+    object-fit: cover;
+}
+.class1 .menu-card .team1 .teamDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.class1 .menu-card .team1 .teamDetails .name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 30px 0px 30px;
+}
+.class1 .menu-card .team1 .teamDetails .name .name-details h4{
+    color: #212529;
+    font-size: 1.3rem;
+}
+.class1 .menu-card .team1 .teamDetails .name .num-icon{
+    font-size: 1rem;
+    background: #f13a11;
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    border-radius: 50%;
+}
+.class1 .menu-card .team1 .teamDetails .name .num-icon i{
+    color: #f9f9f9;
+    font-size: 1.3rem;
+}
+.class1 .menu-card .team1 .pro{
+    padding: 15px 30px 30px 30px;
+}
+.class1 .menu-card .team1 .pro p{
+    font-size: 1rem;
+    color: #666262;
+}
+.contact{
+    padding: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contact .form{
+    width: 45%;
+}
+.contact .form h2{
+    font-size: 2rem;
+    color: #212529;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.contact .form .submit-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.contact .form .submit-box input, .contact .form .submit-box textarea{
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #95a5a6;
+    outline: none;
+    margin: 13px 0;
+}
+.contact .form .submit-box input:focus, .contact .form .submit-box textarea:focus{
+    border: 1px solid #111;
+}
+.contact .form .submit-box input::placeholder{
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+.contact .form .submit-box textarea::placeholder{
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    height: 80%;
+}
+.contact .form .submit-box a{
+    width: 100%;
+    padding: 15px 0;
+    text-decoration: none;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 13px 0;
+}
+.contact .form .submit-box a:hover{
+    background: rgba(17, 17, 17, 0.795);
+}
+.contact .map{
+    width: 45%;
+}
+.contact .map h2{
+    font-size: 2rem;
+    color: #212529;
+    padding-bottom: 10px;
+    width: 100%;
+}
+.contact .map p{
+    font-size: 1.1rem;
+    color: #212529;
+    padding-bottom: 30px;
+    width: 100%;
+}
+.contact .map p i{
+    color: red;
+    font-size: 1.3rem;
+    padding-right: 4px;
+}
+.contact .map iframe{
+    width: 100%;
+}
+.inner-footer{
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    background-color: #272727;
+}
+.social-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.social-links ul{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.social-items{
+    list-style: none;
+}
+.social-items a{
+    padding: 10px 20px;
+    font-size: 30px;
+    color: #6cccc6;
+    flex-direction: row;
+    justify-content: center; 
+    text-align: center;
+}
+.quick-link{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.quick-link ul{
+    display: flex;
+}
+.quick-item{
+    list-style: none;
+}
+.quick-item a{
+    text-decoration: none;
+    padding: 0px 15px;
+    font-size: 18px;
+    color: white;
+}
+.outer-footer{
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background-color: #3f3f3f;
+}
+@media screen and (max-width: 1042px){
+
+}
+@media screen and (max-width: 991px){
+
+}
+@media screen and (max-width: 768px){
+
+}
+@media screen and (max-width: 496px){
+
+}
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Canvas</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <h2>Canvas</h2>
+        <ul class="item">
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#agencies">Agencies</a>
+            </li>
+            <li>
+                <a href="#results">Results</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+            <div class="icon">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            </div>
+        </ul>
+    </div>
+    <div class="back">
+        <img src="" alt="">
+        <div class="overlay"></div>
+    </div>
+    <div id="home" class="mid">
+        <h2>INSIGHT-FUELLED ADVERTISING</h2>
+        <p>Digital Advertising, Audience Profiles, Advertising Intelligence and more.</p>
+        <div class="btn">
+            <a class="simple" href="#"> Get In Touch </a>
+            <a class="border" href="#"> Explore More </a>
+        </div>
+    </div>
+    <div id="about" class="details">
+        <div class="one" data-aos="fade-up">
+            <h3>New to the Canvas ?</h3>
+            <h6>Get started with trial membership is up to 2 monthes FREE($260.50 per month)</h6>
+            <p>Terms And Conditions Apply</p>
+            <a href="#">ENQUIRE NOW</a>
+        </div>
+        <div class="two" data-aos="fade-up">
+            <h3> Working hours</h3>
+            <br>
+            <h5> Sunday : Closed </h5>
+            <h5> Monday - Friday </h5>
+            <p> 7:00 AM - 10:00 PM </p>
+            <br>
+            <h5> Monday - Friday </h5>
+            <p> 7:00 AM - 10:00 PM </p>
+        </div>
+    </div>
+    <div id="agencies" class="agency">
+        <div class="about">
+            <h2 data-aos="fade-up"> Hello , we are Canvas</h2>
+            <p data-aos="fade-up">Globally, the value of Programmatic Advertising will rise from US$57.5bn in 2017 to
+                US$84.9bn in 2019, growing at an average rate of 21% a year - Zenith Programmatic Marketing Forecasts.
+                Marketers are now incorporating Programmatic Advertising into their digital advertising mix and are
+                looking for agencies that can provide it as part of their offering.
+                <br>
+                <br>
+                We work closely with agencies on a year-round tailored program to add Programmatic Advertising
+                capabilities to their business.
+            </p>
+        </div>
+        <div class="partner" data-aos="fade-left">
+            <div class="team1">
+                <div class="image1">
+                    <img src="./Images/McCann-Health-200.png">
+                </div>
+                <div class="teamDetails">
+                    <div class="name">
+                        <h4>Mccan Health </h4>
+                        <i class="fa fa-facebook" aria-hidden="true">
+                        </i>
+                    </div>
+                    <div class="pro">
+                        <p>Group Account Director</p>
+                        <i class="fa fa-twitter" aria-hidden="true">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="team1">
+                <div class="image1">
+                    <img src="./Images/bmb-media-logo-e1513310039420.png">
+                </div>
+                <div class="teamDetails">
+                    <div class="name">
+                        <h4>Bmb Media</h4>
+                        <i class="fa fa-facebook" aria-hidden="true">
+                        </i>
+                    </div>
+                    <div class="pro">
+                        <p>Media campaigner</p>
+                        <i class="fa fa-twitter" aria-hidden="true">
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="results" class="class1" >
+        <h2 class="head-1" data-aos="fade-up">DIGITAL ADVERTISING SOLUTIONS</h2>
+        <p class="paragraph-1">To help you amplify brand reach, engage your audience, win new customers, and measure
+            advertising
+            impact.</p>
+        <div class="menu-card" data-aos="zoom-in">
+            <div class="team1">
+                <div class="image1">
+                    <img src="./Images/pexels-thisisengineering-3862599.jpg">
+                </div>
+                <div class="teamDetails">
+                    <div class="name">
+                        <div class="name-details">
+                            <h4>Programmatic <br> Advertising</h4>
+                        </div>
+                        <div class="num-icon">
+                            <i class="fa-solid fa-display"></i>
+                        </div>
+                    </div>
+                    <div class="pro">
+                        <p>Build brand awareness by using Programmatic Display, Video, Mobile, Connected TV and
+                            Digital
+                            Outdoor to get people to search your brand online, find you on social or visit your
+                            store
+                            and website.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team1">
+                <div class="image1">
+                    <img src="./Images/pexels-pixabay-267350.jpg">
+                </div>
+                <div class="teamDetails">
+                    <div class="name">
+                        <div class="name-details">
+                            <h4>Social Media <br> Advertising</h4>
+                        </div>
+                        <div class="num-icon">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                    <div class="pro">
+                        <p>Use popular social platforms such as Facebook, Instagram, LinkedIn, Twitter and Snapchat to
+                            build awareness, drive engagement, get qualified leads and find new customers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team1">
+                <div class="image1">
+                    <img src="./Images/pexels-pixabay-38547.jpg">
+                </div>
+                <div class="teamDetails">
+                    <div class="name">
+                        <div class="name-details">
+                            <h4>Search Advertising</h4>
+                        </div>
+                        <div class="num-icon">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                    </div>
+                    <div class="pro">
+                        <p>Put your brand in front of consumers when they are searching for your product or looking for
+                            useful information that can help them decide, to purchase from your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="contact">
+        <div class="form" data-aos="zoom-in-right">
+            <h2>GET IN TOUCH</h2>
+            <div class="submit-box">
+                <input type="text" name="" placeholder="Full Name*">
+                <input type="email" name="" placeholder="Email*">
+                <input type="text" name="" placeholder="Company*">
+                <textarea placeholder="How can we help?"></textarea>
+                <a href="#">SUBMIT</a>
+            </div>
+        </div>
+        <div class="map" data-aos="zoom-in-left">
+            <h2>Where you can find us</h2>
+            <p><i class="fa-solid fa-location-dot"></i>Tai Shing St, Chuk Un, Hong Kong</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8777.32392327433!2d114.19261362242386!3d22.33813845587341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404072738fc78ed%3A0xe01d192ac88383a2!2sChuk%20Un%2C%20Hong%20Kong!5e0!3m2!1sen!2sin!4v1663437725812!5m2!1sen!2sin"
+                width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><i class="fa-regular fa-envelope"></i>canvasmedia@email.com <br><i class="fa-solid fa-phone"></i>097-007-7879</p>
+        </div>
+    </div>
+    <footer class="footer" data-aos="fade-up">
+        <div class="inner-footer">
+            <div class="social-links">
+                <ul>
+                    <li class="social-items"><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li class="social-items"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li class="social-items"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="social-items"><a href="#"><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-link">
+                <ul>
+                    <li class="quick-item"><a href="#">About Us</a></li>
+                    <li class="quick-item"><a href="#">Blog & Resources</a></li>
+                    <li class="quick-item"><a href="#"> Terms & Conditions</a></li>
+                    <li class="quick-item"><a href="#">Privacy Policy</a></li>
+                    <li class="quick-item"><a href="#"> Case Studies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="outer-footer">
+            Copyright © 2022. Canvas media Pty Ltd. All Rights Reserved 
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
